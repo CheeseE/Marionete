@@ -20,6 +20,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public Optional<String> getAuthToken(String user, String password) {
+
         LoginRequest request = LoginRequest.newBuilder()
                 .setUsername(user)
                 .setPassword(password)
@@ -27,6 +28,7 @@ public class AuthServiceImpl implements AuthService {
         try {
             var loginResponse = loginServiceStub.login(request);
             log.info("Auth token successfully received: {}", loginResponse.getToken());
+            //Todo: Improvement - save the token to cache and only request new if expired.
             return Optional.of(loginResponse.getToken());
         } catch (StatusRuntimeException e) {
             log.warn("Error during gRPC invocation: {}", e.getMessage());
