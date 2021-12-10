@@ -1,0 +1,15 @@
+grpc.server:
+  inProcessName: loginService
+  port: -1
+grpc.client.loginService.address: in-process:loginService
+
+jwt.secret: javainuse
+
+user.service:
+  host: http://localhost:8898
+  url: /marionete/user/
+account.service:
+  host: http://localhost:8899
+  url: /marionete/account/
+
+logging.level.reactor.netty.http.client: INFO
