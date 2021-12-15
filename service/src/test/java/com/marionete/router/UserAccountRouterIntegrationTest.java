@@ -4,7 +4,9 @@ import com.marionete.model.UserAccount;
 import com.marionete.model.UserAccountRequest;
 import com.marionete.backends.AccountInfoMock;
 import com.marionete.backends.UserInfoMock;
+import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,7 @@ class UserAccountRouterIntegrationTest {
     @Autowired
     private WebTestClient webTestClient;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUp() {
         UserInfoMock.start();
         AccountInfoMock.start();
